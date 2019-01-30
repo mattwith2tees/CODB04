@@ -1,24 +1,39 @@
 var header = document.querySelector('header');
-    var section = document.querySelector('section');
-    var requestURL = 'https://my.callofduty.com/api/papi-client/crm/cod/v2/title/bo4/platform/xbl/gamer/LicensedV1P3R/profile/type/mp';
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-    request.onload = function() {
-      var superHeroes = request.response;
-      populateHeader(superHeroes);
-      // showHeroes(superHeroes);
-    }
-    function populateHeader(jsonObj) {
-      var myH1 = document.createElement('h1');
-      myH1.textContent = 'Game: ' + jsonObj['data']['title'] + ' / username: ' + jsonObj['data']['username'] + ' / EKIA: ' + 
-      jsonObj['data']['mp']['lifetime']['all']['ekia'] ;
-      header.appendChild(myH1);
-      // var myPara = document.createElement('p');
-      // myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
-      // header.appendChild(myPara);
-    }
+var section = document.querySelector('section');
+
+var requestURL = 'https://my.callofduty.com/api/papi-client/crm/cod/v2/title/bo4/platform/xbl/gamer/LicensedV1P3R/profile/type/mp';
+var request = new XMLHttpRequest();
+
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+  var superHeroes = request.response;
+  populateHeader(superHeroes);
+  // showHeroes(superHeroes);
+}
+
+// create dictionary to store key data from external URL, allows for easier access to objects later on
+var keyData = {};
+keyData['Username'] = jsonObj['data']['username'];
+keyData['EKIA'] = jsonObj['data']['mp']['lifetime']['all']['ekia']; 
+keyData['Deaths'] = jsonObj['data']['mp']['lifetime']['all']['deaths']
+
+
+
+function populateHeader(jsonObj) {
+  var myH1 = document.createElement('h1');
+  myH1.textContent = 'Game: ' + jsonObj['data']['title'] + ' / username: ' + jsonObj['data']['username'] + ' / EKIA: ' + 
+  jsonObj['data']['mp']['lifetime']['all']['ekia'] ;
+  header.appendChild(myH1);
+  // var myPara = document.createElement('p');
+  // myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
+  // header.appendChild(myPara);
+}
+
+
+
     // function showHeroes(jsonObj) {
     //   var heroes = jsonObj['members'];
     //   for(var i = 0; i < heroes.length; i++) {
