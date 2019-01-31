@@ -14,50 +14,50 @@ request.onload = function() {
   // showHeroes(superHeroes);
 }
 
-// create dictionary to store key data from external URL, allows for easier access to objects later on
-var keyData = {};
-keyData['Username'] = jsonObj['data']['username'];
-keyData['EKIA'] = jsonObj['data']['mp']['lifetime']['all']['ekia']; 
-keyData['Deaths'] = jsonObj['data']['mp']['lifetime']['all']['deaths']
-
 
 
 function populateHeader(jsonObj) {
+  // create dictionary to store key data from external URL, allows for easier access to objects later on
+  var keyData = {};
+  // access object for all-time stats
+  var allStats = jsonObj['data']['mp']['lifetime']['all'];
+
+  // lifetime stats through all game modes
+  keyData['Username'] = jsonObj['data']['username'];
+  keyData['CareerScore'] = allStats['careerScore'];
+  keyData['EKIA'] = allStats['ekia']; 
+  keyData['Kills'] = allStats['kills'];
+  keyData['Deaths'] = allStats['deaths'];
+  keyData['EKIA/Game'] = allStats['ekiaPerGame'];
+  keyData['EKIA/DeathRatio'] = allStats['ekiadRatio'];
+  keyData['KDRatio'] = allStats['kdRatio'];
+  keyData['Accuracy'] = allStats['accuracy'];
+  keyData['Wins'] = allStats['wins'];
+  keyData['Losses'] = allStats['losses'];
+
+// new dictionary that stores gamemode data i.e. safeguard, tdm, domination, kill confirmed, etc
+  var modeData = {};
+// access object that stores each mode
+  var modeStats = jsonObj['data']['mp']['lifetime']['mode'];
+  
+  // safeguard mode stats
+  var safeguard = modeStats['escort']
+  modeData['totalTimePlayed'] = safeguard['timePlayedTotal'];
+  modeData['Score'] = safeguard['objectiveScore'];
+  modeData['Wins'] = safeguard['wins'];
+  modeData['Losses'] = safeguard['losses'];
+  modeData['W/L'] = safeguard['wlratio'];
+  modeData['Kills'] = safeguard['kills'];
+  modeData['Deaths'] = safeguard['deaths'];
+  modeData['K/D'] = safeguard['kdratio'];
+
+
+
+  
+
+
   var myH1 = document.createElement('h1');
-  myH1.textContent = 'Game: ' + jsonObj['data']['title'] + ' / username: ' + jsonObj['data']['username'] + ' / EKIA: ' + 
-  jsonObj['data']['mp']['lifetime']['all']['ekia'] ;
+  myH1.textContent = 'Safeguard wins = ' + modeData['wins'] + '!';
   header.appendChild(myH1);
-  // var myPara = document.createElement('p');
-  // myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
-  // header.appendChild(myPara);
+
 }
-
-
-
-    // function showHeroes(jsonObj) {
-    //   var heroes = jsonObj['members'];
-    //   for(var i = 0; i < heroes.length; i++) {
-    //     var myArticle = document.createElement('article');
-    //     var myH2 = document.createElement('h2');
-    //     var myPara1 = document.createElement('p');
-    //     var myPara2 = document.createElement('p');
-    //     var myPara3 = document.createElement('p');
-    //     var myList = document.createElement('ul');
-    //     myH2.textContent = heroes[i].name;
-    //     myPara1.textContent = 'Secret identity: ' + heroes[i].secretIdentity;
-    //     myPara2.textContent = 'Age: ' + heroes[i].age;
-    //     myPara3.textContent = 'Superpowers:';
-    //     var superPowers = heroes[i].powers;
-    //     for(var j = 0; j < superPowers.length; j++) {
-    //       var listItem = document.createElement('li');
-    //       listItem.textContent = superPowers[j];
-    //       myList.appendChild(listItem);
-    //     }
-    //     myArticle.appendChild(myH2);
-    //     myArticle.appendChild(myPara1);
-    //     myArticle.appendChild(myPara2);
-    //     myArticle.appendChild(myPara3);
-    //     myArticle.appendChild(myList);
-    //     section.appendChild(myArticle);
-    //   }
-    // }
