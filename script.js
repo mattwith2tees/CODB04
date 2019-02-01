@@ -40,7 +40,6 @@ request.send();
 request.onload = function() {
   var returnData = request.response;
   populateHeader(returnData);
-  populateWeeklyStats(returnData);
   populateAllTimeStats(returnData);
 }
 
@@ -111,44 +110,3 @@ function populateModeStats(jsonObj) {
 
 }
 
-function populateWeeklyStats(jsonObj) {
-
-/////////////// vv DEPRECATED vv ////////////////////
-  // create dictionary to store weekly data
-  // var weeklyData = {};
-  // weeklyData['TotalXP'] = weeklyStats['totalXp'];
-  // weeklyData['TimePlayed'] = weeklyStats['timePlayed'];
-  // weeklyData['Wins'] = weeklyStats['wins'];
-  // weeklyData['Losses'] = weeklyStats['losses'];
-  // weeklyData['Kills'] = weeklyStats['kills'];
-  // weeklyData['Deaths'] = weeklyStats['deaths'];
-  // weeklyData['KDRatio'] = weeklyStats['kdRatio'];
-  // weeklyData['EKIA/DeathRatio'] = weeklyStats['ekiadRatio'];
-  // weeklyData['EKIA'] = weeklyStats['ekia'];
-///////////////  ^^ DEPRECATED ^^ ////////////////////
-
-
-  // access object for weekly stats
-  var weeklyStats = jsonObj['data']['mp']['weekly']['all'];
-
-
-  var TotalXP = weeklyStats['totalXp'] + 'xp';
-  var TimePlayed = weeklyStats['timePlayed'] + 'm';
-  var Wins = weeklyStats['wins'];
-  var Losses = weeklyStats['losses'];
-  var Kills = weeklyStats['kills'];
-  var Deaths = weeklyStats['deaths'];
-  var KDRatio = weeklyStats['kdRatio'];
-  var EKIA_DeathRatio = weeklyStats['ekiadRatio'];
-  var EKIA = weeklyStats['ekia'];
-
-  // document.getElementById('totalXp').innerHTML = TotalXP;
-  // document.getElementById('timePlayed').innerHTML = TimePlayed;
-  // document.getElementById('wins').innerHTML = Wins;
-  // document.getElementById('losses').innerHTML = Losses;
-  // document.getElementById('kills').innerHTML = Kills;
-  // document.getElementById('deaths').innerHTML = Deaths;
-  // document.getElementById('kdRatio').innerHTML = KDRatio;
-  // document.getElementById('ekiadRatio').innerHTML = EKIA_DeathRatio;
-  // document.getElementById('ekia').innerHTML = EKIA;
-}
