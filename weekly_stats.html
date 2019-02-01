@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Weekly Stats</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <div class="image"></div>​
+    <p id = 'intro' style = "color: white; font-size: 40px; position: absolute; right: 10px; top: 10px; margin: 0px; font-family: Arial, Helvetica, sans-serif;   -webkit-text-stroke: 1px black;"> </p>
+
+     <p id = 'gamertag' style = "color: white; font-size: 60px; position: absolute; text-align: center; top: -30px; width: 100%; font-family: Arial, Helvetica, sans-serif; -webkit-text-stroke: 1px black;"> </p>
+  </head>
+
+  <body id = "weekly">
+  <div class="w3-container" style = "position: absolute; top: 300px; width: 100%;">
+  <h2 style = "color: white; text-align: center; font-size: 60px; -webkit-text-stroke: 1px black; font-family: Arial, Helvetica, sans-serif;">Stats by the Week</h2>
+
+
+<!-- ################ Table to display weekly ################# stats -->
+  <table class="w3-table-all w3-card-4" style = "height: 600px; -webkit-text-stroke: 1px black;">
+    <tr>
+      <th style = "text-align: center;">Total Xp</th>
+      <td id = "totalXp" style = "text-align: center;"></td>
+    </tr>
+     <tr>
+      <th style = "text-align: center;">Time Played</th>
+      <td id = "timePlayed" style = "text-align: center;"></td>
+    </tr>
+     <tr>
+      <th style = "text-align: center;">Wins</th>
+      <td id = "wins" style = "text-align: center;"></td>
+    </tr>
+     <tr>
+      <th style = "text-align: center;">Losses</th>
+      <td id = "losses" style = "text-align: center;"></td>
+    </tr>
+     <tr>
+      <th style = "text-align: center;">Kills</th>
+      <td id = "kills" style = "text-align: center;"></td>
+    </tr>
+     <tr>
+      <th style = "text-align: center;">Deaths</th>
+      <td id = "deaths" style = "text-align: center;"></td>
+    </tr>
+     <tr>
+      <th style = "text-align: center;">K/D Ratio</th>
+      <td id = "kdRatio" style = "text-align: center;"></td>
+    </tr>
+     <tr>
+      <th style = "text-align: center;">EKIA</th>
+      <td id = "ekia" style = "text-align: center;"></td>
+    </tr>
+     <tr>
+      <th style = "text-align: center;">EKIA/Death Ratio</th>
+      <td id = "ekiadRatio" style = "text-align: center;"></td>
+    </tr>
+  </table>
+</div>
+
+  </body>
+  
+    <script src = 'script.js'>
+      document.getElementById('totalXp').innerHTML = TotalXP;
+      document.getElementById('timePlayed').innerHTML = TimePlayed;
+      document.getElementById('wins').innerHTML = Wins;
+      document.getElementById('losses').innerHTML = Losses;
+      document.getElementById('kills').innerHTML = Kills;
+      document.getElementById('deaths').innerHTML = Deaths;
+      document.getElementById('kdRatio').innerHTML = KDRatio;
+      document.getElementById('ekiadRatio').innerHTML = EKIA_DeathRatio;
+      document.getElementById('ekia').innerHTML = EKIA;
+    </script>
+</html>
