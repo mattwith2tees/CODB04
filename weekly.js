@@ -1,6 +1,6 @@
 
 // call of duty external URL
-var requestURL = 'https://my.callofduty.com/api/papi-client/crm/cod/v2/title/bo4/platform/xbl/gamer/LicensedV1P3R/profile/type/mp';
+var requestURL = 'https://my.callofduty.com/api/papi-client/crm/cod/v2/title/bo4/platform/xbl/gamer/jsteavens/profile/type/mp';
 var request = new XMLHttpRequest();
 
 
